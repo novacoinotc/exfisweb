@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXFIS LIMITS SAPI DE CV | Ecosistema Corporativo & Tecnologico</title>
+    <meta name="description" content="EXFIS LIMITS - Sociedad Anonima Promotora de Inversion. Consultoria, tecnologia, inversiones y activos digitales en Guadalajara, Mexico.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Cursor glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <path d="M16 2L28 9V23L16 30L4 23V9L16 2Z" stroke="url(#logoGrad)" stroke-width="1.5" fill="none"/>
+                        <path d="M16 8L22 11.5V18.5L16 22L10 18.5V11.5L16 8Z" fill="url(#logoGrad2)" opacity="0.3"/>
+                        <circle cx="16" cy="15" r="3" fill="url(#logoGrad2)"/>
+                        <defs>
+                            <linearGradient id="logoGrad" x1="4" y1="2" x2="28" y2="30">
+                                <stop stop-color="#00f0ff"/>
+                                <stop offset="1" stop-color="#7b2fff"/>
+                            </linearGradient>
+                            <linearGradient id="logoGrad2" x1="10" y1="8" x2="22" y2="22">
+                                <stop stop-color="#00f0ff"/>
+                                <stop offset="1" stop-color="#7b2fff"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </span>
+                <span class="logo-text">EXFIS<span class="logo-accent">LIMITS</span></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#about" class="nav-link" data-text="Nosotros">Nosotros</a>
+                <a href="#services" class="nav-link" data-text="Servicios">Servicios</a>
+                <a href="#ecosystem" class="nav-link" data-text="Ecosistema">Ecosistema</a>
+                <a href="#sapi" class="nav-link" data-text="SAPI">SAPI</a>
+                <a href="#tech" class="nav-link" data-text="Tecnologia">Tecnologia</a>
+                <a href="#contact" class="nav-link" data-text="Contacto">Contacto</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-grid-bg"></div>
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-orb hero-orb-3"></div>
+        <div class="hero-content">
+            <div class="hero-badge animate-on-scroll">
+                <span class="badge-dot"></span>
+                <span>SAPI DE CV &mdash; Guadalajara, Jalisco</span>
+            </div>
+            <h1 class="hero-title animate-on-scroll">
+                <span class="title-line">Ecosistema</span>
+                <span class="title-line gradient-text">Corporativo</span>
+                <span class="title-line">& <span class="gradient-text-alt">Tecnologico</span></span>
+            </h1>
+            <p class="hero-subtitle animate-on-scroll">
+                Sociedad Anonima Promotora de Inversion de Capital Variable.
+                Integramos consultoria estrategica, desarrollo tecnologico, inversiones
+                y activos digitales bajo un marco legal robusto y vanguardista.
+            </p>
+            <div class="hero-cta animate-on-scroll">
+                <a href="#services" class="btn btn-primary">
+                    <span>Explorar Servicios</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#ecosystem" class="btn btn-ghost">
+                    <span>Ecosistema SAPI</span>
+                </a>
+            </div>
+            <div class="hero-stats animate-on-scroll">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="2020">2020</span>
+                    <span class="stat-label">Fundacion</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">GDL</span>
+                    <span class="stat-label">Jalisco, MX</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">SAPI</span>
+                    <span class="stat-label">Capital Variable</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">360&deg;</span>
+                    <span class="stat-label">Ecosistema</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">// ABOUT</span>
+                <h2 class="section-title">Quienes <span class="gradient-text">Somos</span></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text animate-on-scroll">
+                    <p class="about-lead">
+                        <strong>EXFIS LIMITS</strong> es una Sociedad Anonima Promotora de Inversion de Capital Variable
+                        constituida en Guadalajara, Jalisco, bajo la Ley General de Sociedades Mercantiles y la
+                        Ley del Mercado de Valores.
+                    </p>
+                    <p>
+                        Nuestro objeto social abarca el desarrollo de tecnologias en todas las ramas &mdash; desde la
+                        Fisica y Matematica hasta la Cibernetica y Telecomunicaciones &mdash; asi como la prestacion
+                        de servicios de consultoria integral, gestion de inversiones y administracion de activos
+                        para impulsar el crecimiento empresarial.
+                    </p>
+                    <p>
+                        Como SAPI, contamos con una estructura flexible que nos permite atraer inversion privada,
+                        emitir diferentes series de acciones y operar bajo un gobierno corporativo de vanguardia,
+                        todo dentro del marco regulatorio mexicano.
+                    </p>
+                </div>
+                <div class="about-cards animate-on-scroll">
+                    <div class="glass-card about-card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3>Estructura SAPI</h3>
+                        <p>Gobierno corporativo flexible con series de acciones diferenciadas y atraccion de capital privado.</p>
+                    </div>
+                    <div class="glass-card about-card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <h3>Alcance Global</h3>
+                        <p>Operaciones de importacion, exportacion y alianzas estrategicas internacionales.</p>
+                    </div>
+                    <div class="glass-card about-card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3>Marco Legal</h3>
+                        <p>Regulados por la LGSM y la Ley del Mercado de Valores. RFC: ELI201215H12.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section section-dark" id="services">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">// SERVICES</span>
+                <h2 class="section-title">Nuestros <span class="gradient-text">Servicios</span></h2>
+                <p class="section-desc">Soluciones integrales que abarcan todo el espectro empresarial y tecnologico</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card glass-card animate-on-scroll" data-tilt>
+                    <div class="service-number">01</div>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#sGrad1)" stroke-width="1.5">
+                            <defs><linearGradient id="sGrad1" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#00f0ff"/><stop offset="1" stop-color="#7b2fff"/></linearGradient></defs>
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3>Consultoria Estrategica</h3>
+                    <p>Consultoria en administracion, planificacion estrategica, reingenieria de procesos y estudios de mercado para la toma de decisiones.</p>
+                    <ul class="service-tags">
+                        <li>Administracion</li>
+                        <li>Estrategia</li>
+                        <li>Procesos</li>
+                    </ul>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card glass-card animate-on-scroll" data-tilt>
+                    <div class="service-number">02</div>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#sGrad1)" stroke-width="1.5">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                            <line x1="14" y1="4" x2="10" y2="20"/>
+                        </svg>
+                    </div>
+                    <h3>Desarrollo Tecnologico</h3>
+                    <p>Software, hardware, aplicaciones, integracion de sistemas, redes, telecomunicaciones, IoT e inteligencia artificial.</p>
+                    <ul class="service-tags">
+                        <li>Software</li>
+                        <li>AI/ML</li>
+                        <li>IoT</li>
+                    </ul>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card glass-card animate-on-scroll" data-tilt>
+                    <div class="service-number">03</div>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#sGrad1)" stroke-width="1.5">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <h3>Inversiones & Capital</h3>
+                    <p>Gestion de portafolios de inversion, private equity, venture capital, estructuracion de fondos y levantamiento de capital.</p>
+                    <ul class="service-tags">
+                        <li>Private Equity</li>
+                        <li>VC</li>
+                        <li>Fondos</li>
+                    </ul>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card glass-card animate-on-scroll" data-tilt>
+                    <div class="service-number">04</div>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#sGrad1)" stroke-width="1.5">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                        </svg>
+                    </div>
+                    <h3>Activos Virtuales & Digitales</h3>
+                    <p>Administracion de activos virtuales, tokenizacion, blockchain, criptoactivos y cumplimiento regulatorio digital.</p>
+                    <ul class="service-tags">
+                        <li>Blockchain</li>
+                        <li>Tokens</li>
+                        <li>DeFi</li>
+                    </ul>
+                </div>
+                <!-- Service 5 -->
+                <div class="service-card glass-card animate-on-scroll" data-tilt>
+                    <div class="service-number">05</div>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#sGrad1)" stroke-width="1.5">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
+                    <h3>Bienes Raices & Inmobiliario</h3>
+                    <p>Adquisicion, enajenacion, arrendamiento y subarrendamiento de bienes muebles e inmuebles para expansion societaria.</p>
+                    <ul class="service-tags">
+                        <li>Inmuebles</li>
+                        <li>Leasing</li>
+                        <li>Expansion</li>
+                    </ul>
+                </div>
+                <!-- Service 6 -->
+                <div class="service-card glass-card animate-on-scroll" data-tilt>
+                    <div class="service-number">06</div>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#sGrad1)" stroke-width="1.5">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                    </div>
+                    <h3>Propiedad Intelectual</h3>
+                    <p>Registro y gestion de patentes, marcas, nombres comerciales, licencias, autorizaciones y contratos de PI.</p>
+                    <ul class="service-tags">
+                        <li>Patentes</li>
+                        <li>Marcas</li>
+                        <li>Licencias</li>
+                    </ul>
+                </div>
+                <!-- Service 7 -->
+                <div class="service-card glass-card animate-on-scroll" data-tilt>
+                    <div class="service-number">07</div>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#sGrad1)" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <h3>Comercio Exterior</h3>
+                    <p>Importacion y exportacion de tecnologia, bienes y servicios. Alianzas con personas fisicas y morales nacionales y extranjeras.</p>
+                    <ul class="service-tags">
+                        <li>Import/Export</li>
+                        <li>Alianzas</li>
+                        <li>Global</li>
+                    </ul>
+                </div>
+                <!-- Service 8 -->
+                <div class="service-card glass-card animate-on-scroll" data-tilt>
+                    <div class="service-number">08</div>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#sGrad1)" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Servicios Profesionales</h3>
+                    <p>Asesoria fiscal, contable, legal, administrativa y tecnologica. Capacitacion y programas de desarrollo de talento.</p>
+                    <ul class="service-tags">
+                        <li>Fiscal</li>
+                        <li>Legal</li>
+                        <li>Contable</li>
+                    </ul>
+                </div>
+                <!-- Service 9 -->
+                <div class="service-card glass-card animate-on-scroll" data-tilt>
+                    <div class="service-number">09</div>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#sGrad1)" stroke-width="1.5">
+                            <rect x="4" y="4" width="16" height="16" rx="2"/>
+                            <rect x="9" y="9" width="6" height="6"/>
+                            <line x1="9" y1="1" x2="9" y2="4"/>
+                            <line x1="15" y1="1" x2="15" y2="4"/>
+                            <line x1="9" y1="20" x2="9" y2="23"/>
+                            <line x1="15" y1="20" x2="15" y2="23"/>
+                            <line x1="20" y1="9" x2="23" y2="9"/>
+                            <line x1="20" y1="14" x2="23" y2="14"/>
+                            <line x1="1" y1="9" x2="4" y2="9"/>
+                            <line x1="1" y1="14" x2="4" y2="14"/>
+                        </svg>
+                    </div>
+                    <h3>Telecomunicaciones & Redes</h3>
+                    <p>Diseño, implementacion y mantenimiento de redes, Banda Ancha, Networking, operadores de telecomunicaciones y compañias electricas.</p>
+                    <ul class="service-tags">
+                        <li>Redes</li>
+                        <li>Telecom</li>
+                        <li>Infraestructura</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem Section -->
+    <section class="section" id="ecosystem">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">// ECOSYSTEM</span>
+                <h2 class="section-title">Ecosistema <span class="gradient-text">Integral</span></h2>
+                <p class="section-desc">Todo lo que una SAPI puede hacer, consolidado en un ecosistema corporativo de 360 grados</p>
+            </div>
+            <div class="ecosystem-wrapper">
+                <div class="ecosystem-center animate-on-scroll">
+                    <div class="eco-hub">
+                        <div class="eco-hub-inner">
+                            <span>EXFIS</span>
+                            <span class="eco-hub-sub">LIMITS</span>
+                        </div>
+                        <div class="eco-ring eco-ring-1"></div>
+                        <div class="eco-ring eco-ring-2"></div>
+                        <div class="eco-ring eco-ring-3"></div>
+                    </div>
+                </div>
+                <div class="ecosystem-grid">
+                    <div class="eco-card glass-card animate-on-scroll">
+                        <span class="eco-tag">INVERSION</span>
+                        <h4>Private Equity & Venture Capital</h4>
+                        <p>Atraccion de capital privado, emision de acciones Series A/B/C, coinversiones y estructuracion de fondos.</p>
+                    </div>
+                    <div class="eco-card glass-card animate-on-scroll">
+                        <span class="eco-tag">DIGITAL</span>
+                        <h4>Activos Virtuales</h4>
+                        <p>Tokenizacion de activos, gestion de criptomonedas, smart contracts, NFTs y plataformas DeFi.</p>
+                    </div>
+                    <div class="eco-card glass-card animate-on-scroll">
+                        <span class="eco-tag">FINTECH</span>
+                        <h4>Servicios Financieros</h4>
+                        <p>Titulos de credito, operaciones cambiarias, financiamiento empresarial y operaciones bancarias.</p>
+                    </div>
+                    <div class="eco-card glass-card animate-on-scroll">
+                        <span class="eco-tag">REAL ESTATE</span>
+                        <h4>Bienes Raices</h4>
+                        <p>Adquisicion, enajenacion, arrendamiento y desarrollo inmobiliario para expansion corporativa.</p>
+                    </div>
+                    <div class="eco-card glass-card animate-on-scroll">
+                        <span class="eco-tag">IP</span>
+                        <h4>Propiedad Intelectual</h4>
+                        <p>Patentes, marcas, secretos industriales, licenciamiento y monetizacion de activos intangibles.</p>
+                    </div>
+                    <div class="eco-card glass-card animate-on-scroll">
+                        <span class="eco-tag">CORPORATE</span>
+                        <h4>Gobierno Corporativo</h4>
+                        <p>Consejo de administracion, comites de auditoria, asambleas de accionistas y compliance.</p>
+                    </div>
+                    <div class="eco-card glass-card animate-on-scroll">
+                        <span class="eco-tag">TRADE</span>
+                        <h4>Comercio Internacional</h4>
+                        <p>Importacion y exportacion de tecnologia, asociaciones con entidades extranjeras y operaciones globales.</p>
+                    </div>
+                    <div class="eco-card glass-card animate-on-scroll">
+                        <span class="eco-tag">HR</span>
+                        <h4>Capital Humano</h4>
+                        <p>Capacitacion, programas de becas, desarrollo de talento, outsourcing y servicios especializados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SAPI Section -->
+    <section class="section section-dark" id="sapi">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">// SAPI FRAMEWORK</span>
+                <h2 class="section-title">Ventajas <span class="gradient-text">SAPI</span></h2>
+                <p class="section-desc">Marco legal que potencia la estructura corporativa</p>
+            </div>
+            <div class="sapi-grid">
+                <div class="sapi-feature glass-card animate-on-scroll">
+                    <div class="sapi-icon-wrap">
+                        <span class="sapi-num">01</span>
+                    </div>
+                    <div class="sapi-content">
+                        <h4>Emision de Acciones Diferenciadas</h4>
+                        <p>Series A, B y C con derechos corporativos y economicos diferenciados. Acciones de voto limitado, restringido o sin voto.</p>
+                    </div>
+                </div>
+                <div class="sapi-feature glass-card animate-on-scroll">
+                    <div class="sapi-icon-wrap">
+                        <span class="sapi-num">02</span>
+                    </div>
+                    <div class="sapi-content">
+                        <h4>Atraccion de Inversion Privada</h4>
+                        <p>Estructura ideal para venture capital, angel investors y fondos de inversion sin necesidad de cotizar en bolsa.</p>
+                    </div>
+                </div>
+                <div class="sapi-feature glass-card animate-on-scroll">
+                    <div class="sapi-icon-wrap">
+                        <span class="sapi-num">03</span>
+                    </div>
+                    <div class="sapi-content">
+                        <h4>Capital Variable</h4>
+                        <p>Flexibilidad para aumentar o disminuir capital social sin necesidad de reforma estatutaria, facilitando el crecimiento.</p>
+                    </div>
+                </div>
+                <div class="sapi-feature glass-card animate-on-scroll">
+                    <div class="sapi-icon-wrap">
+                        <span class="sapi-num">04</span>
+                    </div>
+                    <div class="sapi-content">
+                        <h4>Restriccion de Transferencia</h4>
+                        <p>Clausulas de exclusion de extranjeros, derecho de tanto, tag-along y drag-along para proteccion de accionistas.</p>
+                    </div>
+                </div>
+                <div class="sapi-feature glass-card animate-on-scroll">
+                    <div class="sapi-icon-wrap">
+                        <span class="sapi-num">05</span>
+                    </div>
+                    <div class="sapi-content">
+                        <h4>Gobierno Corporativo Flexible</h4>
+                        <p>Consejo de administracion, comites especializados, Director General con facultades amplias y comisarios.</p>
+                    </div>
+                </div>
+                <div class="sapi-feature glass-card animate-on-scroll">
+                    <div class="sapi-icon-wrap">
+                        <span class="sapi-num">06</span>
+                    </div>
+                    <div class="sapi-content">
+                        <h4>Convenios entre Accionistas</h4>
+                        <p>Acuerdos vinculantes sobre compra, venta, enajenacion, adquisicion y derechos de voto entre socios.</p>
+                    </div>
+                </div>
+                <div class="sapi-feature glass-card animate-on-scroll">
+                    <div class="sapi-icon-wrap">
+                        <span class="sapi-num">07</span>
+                    </div>
+                    <div class="sapi-content">
+                        <h4>Stock Options & Vesting</h4>
+                        <p>Emision de opciones de compra de acciones para directivos y empleados clave como plan de incentivos.</p>
+                    </div>
+                </div>
+                <div class="sapi-feature glass-card animate-on-scroll">
+                    <div class="sapi-icon-wrap">
+                        <span class="sapi-num">08</span>
+                    </div>
+                    <div class="sapi-content">
+                        <h4>Ruta a Mercado de Valores</h4>
+                        <p>Estructura preparada para una eventual oferta publica y listado en la Bolsa Mexicana de Valores (BMV).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="section" id="tech">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">// TECHNOLOGY</span>
+                <h2 class="section-title">Stack <span class="gradient-text">Tecnologico</span></h2>
+            </div>
+            <div class="tech-marquee">
+                <div class="marquee-track">
+                    <div class="marquee-item">Blockchain</div>
+                    <div class="marquee-item">Smart Contracts</div>
+                    <div class="marquee-item">AI / Machine Learning</div>
+                    <div class="marquee-item">Cloud Computing</div>
+                    <div class="marquee-item">Cybersecurity</div>
+                    <div class="marquee-item">IoT</div>
+                    <div class="marquee-item">Big Data</div>
+                    <div class="marquee-item">DeFi</div>
+                    <div class="marquee-item">Web3</div>
+                    <div class="marquee-item">Telecomunicaciones</div>
+                    <div class="marquee-item">Blockchain</div>
+                    <div class="marquee-item">Smart Contracts</div>
+                    <div class="marquee-item">AI / Machine Learning</div>
+                    <div class="marquee-item">Cloud Computing</div>
+                    <div class="marquee-item">Cybersecurity</div>
+                    <div class="marquee-item">IoT</div>
+                    <div class="marquee-item">Big Data</div>
+                    <div class="marquee-item">DeFi</div>
+                    <div class="marquee-item">Web3</div>
+                    <div class="marquee-item">Telecomunicaciones</div>
+                </div>
+            </div>
+            <div class="tech-grid animate-on-scroll">
+                <div class="tech-card glass-card">
+                    <div class="tech-card-glow"></div>
+                    <h4>Infraestructura</h4>
+                    <div class="tech-list">
+                        <span>Cloud Servers</span>
+                        <span>Redes LAN/WAN</span>
+                        <span>Banda Ancha</span>
+                        <span>Data Centers</span>
+                        <span>Edge Computing</span>
+                    </div>
+                </div>
+                <div class="tech-card glass-card">
+                    <div class="tech-card-glow"></div>
+                    <h4>Desarrollo</h4>
+                    <div class="tech-list">
+                        <span>Apps Moviles</span>
+                        <span>Plataformas Web</span>
+                        <span>APIs & Microservicios</span>
+                        <span>ERP & CRM</span>
+                        <span>Automatizacion</span>
+                    </div>
+                </div>
+                <div class="tech-card glass-card">
+                    <div class="tech-card-glow"></div>
+                    <h4>Emergente</h4>
+                    <div class="tech-list">
+                        <span>Inteligencia Artificial</span>
+                        <span>Blockchain</span>
+                        <span>Tokenizacion</span>
+                        <span>Digital Twins</span>
+                        <span>Quantum Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section-dark" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info animate-on-scroll">
+                    <span class="section-tag">// CONTACTO</span>
+                    <h2 class="section-title">Conecta con <span class="gradient-text">Nosotros</span></h2>
+                    <p>Estamos listos para potenciar tu vision empresarial con nuestro ecosistema integral de servicios.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <div>
+                                <strong>Domicilio Fiscal</strong>
+                                <span>Calle Pompeya 2775, Col. Lomas de Guevara</span>
+                                <span>Guadalajara, Jalisco, C.P. 44657</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                            </svg>
+                            <div>
+                                <strong>RFC</strong>
+                                <span>ELI201215H12</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                            <div>
+                                <strong>Regimen</strong>
+                                <span>Sociedad Anonima Promotora de Inversion de Capital Variable</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrap animate-on-scroll">
+                    <form class="contact-form glass-card" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" required placeholder=" ">
+                            <label for="name">Nombre completo</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" required placeholder=" ">
+                            <label for="email">Email corporativo</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="company" placeholder=" ">
+                            <label for="company">Empresa</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <select id="interest" required>
+                                <option value="" disabled selected></option>
+                                <option value="consultoria">Consultoria Estrategica</option>
+                                <option value="tecnologia">Desarrollo Tecnologico</option>
+                                <option value="inversiones">Inversiones & Capital</option>
+                                <option value="activos">Activos Virtuales</option>
+                                <option value="inmobiliario">Bienes Raices</option>
+                                <option value="pi">Propiedad Intelectual</option>
+                                <option value="comercio">Comercio Exterior</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                            <label for="interest">Area de interes</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="4" required placeholder=" "></textarea>
+                            <label for="message">Mensaje</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Enviar Mensaje</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">EXFIS<span class="logo-accent">LIMITS</span></span>
+                    <p>Sociedad Anonima Promotora de Inversion de Capital Variable</p>
+                    <p class="footer-small">RFC: ELI201215H12 | Desde 2020</p>
+                </div>
+                <div class="footer-links">
+                    <h5>Servicios</h5>
+                    <a href="#services">Consultoria</a>
+                    <a href="#services">Tecnologia</a>
+                    <a href="#services">Inversiones</a>
+                    <a href="#services">Activos Digitales</a>
+                </div>
+                <div class="footer-links">
+                    <h5>Empresa</h5>
+                    <a href="#about">Nosotros</a>
+                    <a href="#ecosystem">Ecosistema</a>
+                    <a href="#sapi">Marco SAPI</a>
+                    <a href="#contact">Contacto</a>
+                </div>
+                <div class="footer-links">
+                    <h5>Legal</h5>
+                    <a href="#sapi">Gobierno Corporativo</a>
+                    <a href="#sapi">Compliance</a>
+                    <a href="#sapi">LFPIORPI</a>
+                    <a href="#sapi">Privacidad</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2020 &ndash; 2026 EXFIS LIMITS SAPI DE CV. Todos los derechos reservados.</p>
+                <p class="footer-small">Guadalajara, Jalisco, Mexico</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
