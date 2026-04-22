@@ -3,503 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EXFIS LIMITS SAPI DE CV | Consultoria, Tecnologia & Activos Digitales</title>
-    <meta name="description" content="EXFIS LIMITS - Consultoria en administracion, desarrollo de software con IA, analisis blockchain y soluciones de compliance. Guadalajara, Jalisco.">
+    <title>EXFIS LIMITS SAPI DE CV | Sitio en Construccion</title>
+    <meta name="description" content="EXFIS LIMITS - Sitio web en construccion. Consultoria en administracion y tecnologia. Guadalajara, Jalisco.">
+    <meta name="robots" content="noindex">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bg: #07070b;
+            --bg-2: #0d0d14;
+            --text: #e4e4e7;
+            --text-muted: #a1a1aa;
+            --text-dim: #71717a;
+            --border: rgba(255, 255, 255, 0.08);
+            --accent: #00f0ff;
+            --accent-2: #7b2fff;
+            --gradient: linear-gradient(135deg, #00f0ff 0%, #7b2fff 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            height: 100%;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.35;
+            pointer-events: none;
+            animation: float 12s ease-in-out infinite;
+        }
+        .orb-1 {
+            width: 420px; height: 420px;
+            background: radial-gradient(circle, #00f0ff, transparent 70%);
+            top: -120px; left: -80px;
+        }
+        .orb-2 {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, #7b2fff, transparent 70%);
+            bottom: -180px; right: -120px;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -20px); }
+        }
+
+        main {
+            position: relative;
+            z-index: 2;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .card {
+            max-width: 580px;
+            width: 100%;
+            text-align: center;
+            padding: 56px 40px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .logo svg {
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .logo-accent {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-left: 4px;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border: 1px solid rgba(255, 179, 0, 0.3);
+            border-radius: 999px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: #ffc04d;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        .status-dot {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: #ffb300;
+            box-shadow: 0 0 10px rgba(255, 179, 0, 0.7);
+            animation: pulse 1.8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.35; }
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        h1 .gradient {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .lead {
+            color: var(--text-muted);
+            font-size: 1.02rem;
+            line-height: 1.65;
+            margin-bottom: 36px;
+            max-width: 440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 32px auto;
+            max-width: 80px;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .info-row strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .info-row a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .info-row a:hover { opacity: 0.7; }
+
+        .meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--text-dim);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-top: 28px;
+        }
+
+        @media (max-width: 480px) {
+            .card { padding: 40px 24px; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Particle Canvas -->
-    <canvas id="particleCanvas"></canvas>
+    <div class="bg-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
 
-    <!-- Cursor glow -->
-    <div class="cursor-glow" id="cursorGlow"></div>
-
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">
-                <span class="logo-icon">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                        <path d="M16 2L28 9V23L16 30L4 23V9L16 2Z" stroke="url(#logoGrad)" stroke-width="1.5" fill="none"/>
-                        <path d="M16 8L22 11.5V18.5L16 22L10 18.5V11.5L16 8Z" fill="url(#logoGrad2)" opacity="0.3"/>
-                        <circle cx="16" cy="15" r="3" fill="url(#logoGrad2)"/>
-                        <defs>
-                            <linearGradient id="logoGrad" x1="4" y1="2" x2="28" y2="30">
-                                <stop stop-color="#00f0ff"/>
-                                <stop offset="1" stop-color="#7b2fff"/>
-                            </linearGradient>
-                            <linearGradient id="logoGrad2" x1="10" y1="8" x2="22" y2="22">
-                                <stop stop-color="#00f0ff"/>
-                                <stop offset="1" stop-color="#7b2fff"/>
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                </span>
+    <main>
+        <div class="card">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <path d="M16 2L28 9V23L16 30L4 23V9L16 2Z" stroke="url(#logoGrad)" stroke-width="1.5" fill="none"/>
+                    <path d="M16 8L22 11.5V18.5L16 22L10 18.5V11.5L16 8Z" fill="url(#logoGrad2)" opacity="0.35"/>
+                    <circle cx="16" cy="15" r="3" fill="url(#logoGrad2)"/>
+                    <defs>
+                        <linearGradient id="logoGrad" x1="4" y1="2" x2="28" y2="30">
+                            <stop stop-color="#00f0ff"/>
+                            <stop offset="1" stop-color="#7b2fff"/>
+                        </linearGradient>
+                        <linearGradient id="logoGrad2" x1="10" y1="8" x2="22" y2="22">
+                            <stop stop-color="#00f0ff"/>
+                            <stop offset="1" stop-color="#7b2fff"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
                 <span class="logo-text">EXFIS<span class="logo-accent">LIMITS</span></span>
-            </a>
-            <div class="nav-links" id="navLinks">
-                <a href="#about" class="nav-link" data-text="Nosotros">Nosotros</a>
-                <a href="#services" class="nav-link" data-text="Servicios">Servicios</a>
-                <a href="#tech" class="nav-link" data-text="Tecnologia">Tecnologia</a>
-                <a href="#sapi" class="nav-link" data-text="SAPI">SAPI</a>
-                <a href="#contact" class="nav-link" data-text="Contacto">Contacto</a>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-grid-bg"></div>
-        <div class="hero-orb hero-orb-1"></div>
-        <div class="hero-orb hero-orb-2"></div>
-        <div class="hero-orb hero-orb-3"></div>
-        <div class="hero-content">
-            <div class="hero-badge animate-on-scroll">
-                <span class="badge-dot"></span>
-                <span>SAPI DE CV &mdash; Guadalajara, Jalisco</span>
+            <div class="status">
+                <span class="status-dot"></span>
+                <span>En construccion</span>
             </div>
-            <h1 class="hero-title animate-on-scroll">
-                <span class="title-line">Consultoria,</span>
-                <span class="title-line gradient-text">Tecnologia</span>
-                <span class="title-line">& <span class="gradient-text-alt">Activos Digitales</span></span>
-            </h1>
-            <p class="hero-subtitle animate-on-scroll">
-                Consultoria en administracion y soluciones tecnologicas
-                para el ecosistema empresarial y digital.
+
+            <h1>Estamos trabajando en <span class="gradient">algo nuevo</span></h1>
+
+            <p class="lead">
+                Nuestro sitio esta en proceso de actualizacion.
+                Muy pronto regresaremos con una experiencia renovada.
             </p>
-            <div class="hero-cta animate-on-scroll">
-                <a href="#services" class="btn btn-primary">
-                    <span>Nuestros Servicios</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <a href="#about" class="btn btn-ghost">
-                    <span>Conocenos</span>
-                </a>
-            </div>
-            <div class="hero-stats animate-on-scroll">
-                <div class="stat-item">
-                    <span class="stat-number" data-target="2020">2020</span>
-                    <span class="stat-label">Fundacion</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-number">GDL</span>
-                    <span class="stat-label">Jalisco, MX</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-number">SAPI</span>
-                    <span class="stat-label">Capital Variable</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-number">AI/ML</span>
-                    <span class="stat-label">Tecnologia Propietaria</span>
-                </div>
-            </div>
-        </div>
-        <div class="hero-scroll-indicator">
-            <div class="scroll-line"></div>
-            <span>Scroll</span>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <span class="section-tag">// ABOUT</span>
-                <h2 class="section-title">Quienes <span class="gradient-text">Somos</span></h2>
-            </div>
-            <div class="about-grid">
-                <div class="about-text animate-on-scroll">
-                    <p class="about-lead">
-                        <strong>EXFIS LIMITS</strong> es una empresa de consultoria en administracion
-                        y tecnologia con sede en Guadalajara, Jalisco.
-                    </p>
-                    <p>
-                        Combinamos experiencia en gestion empresarial con desarrollo tecnologico
-                        de vanguardia &mdash; especializandonos en inteligencia artificial, analisis
-                        blockchain y soluciones de compliance para el ecosistema de activos digitales.
-                    </p>
-                    <p>
-                        Constituidos como Sociedad Anonima Promotora de Inversion de Capital
-                        Variable (SAPI de CV) bajo la Ley General de Sociedades Mercantiles,
-                        contamos con una estructura corporativa flexible que nos permite operar
-                        en multiples verticales del mundo empresarial y tecnologico.
-                    </p>
-                </div>
-                <div class="about-cards animate-on-scroll">
-                    <div class="glass-card about-card">
-                        <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                            </svg>
-                        </div>
-                        <h3>Consultoria & Tecnologia</h3>
-                        <p>Soluciones integrales de administracion empresarial y desarrollo de software con IA.</p>
-                    </div>
-                    <div class="glass-card about-card">
-                        <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                            </svg>
-                        </div>
-                        <h3>Activos Digitales</h3>
-                        <p>Experiencia operativa en mercados de criptoactivos y stablecoins.</p>
-                    </div>
-                    <div class="glass-card about-card">
-                        <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            </svg>
-                        </div>
-                        <h3>Marco Legal</h3>
-                        <p>Constituidos bajo la LGSM como SAPI de CV. RFC: ELI201215H12.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="divider"></div>
 
-    <!-- Services Section -->
-    <section class="section section-dark" id="services">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <span class="section-tag">// SERVICES</span>
-                <h2 class="section-title">Nuestros <span class="gradient-text">Servicios</span></h2>
-                <p class="section-desc">Consultoria, tecnologia y compliance para el ecosistema empresarial y digital</p>
-            </div>
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card glass-card animate-on-scroll" data-tilt>
-                    <div class="service-number">01</div>
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#sGrad1)" stroke-width="1.5">
-                            <defs><linearGradient id="sGrad1" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#00f0ff"/><stop offset="1" stop-color="#7b2fff"/></linearGradient></defs>
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                            <line x1="12" y1="22.08" x2="12" y2="12"/>
-                        </svg>
-                    </div>
-                    <h3>Consultoria en Administracion</h3>
-                    <p>Consultoria empresarial en administracion, planificacion estrategica, optimizacion de procesos y transformacion operativa. Enfocados en PyMEs y empresas en crecimiento en Mexico &mdash; diagnostico organizacional, reingenieria de procesos y estrategia corporativa.</p>
-                    <ul class="service-tags">
-                        <li>Administracion</li>
-                        <li>Estrategia</li>
-                        <li>Optimizacion</li>
-                    </ul>
+            <div class="info">
+                <div class="info-row">
+                    <strong>Contacto:</strong>
+                    <a href="mailto:contacto@exfis.mx">contacto@exfis.mx</a>
                 </div>
-                <!-- Service 2 -->
-                <div class="service-card glass-card animate-on-scroll" data-tilt>
-                    <div class="service-number">02</div>
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#sGrad1)" stroke-width="1.5">
-                            <polyline points="16 18 22 12 16 6"/>
-                            <polyline points="8 6 2 12 8 18"/>
-                            <line x1="14" y1="4" x2="10" y2="20"/>
-                        </svg>
-                    </div>
-                    <h3>Tecnologia & Desarrollo de Software</h3>
-                    <p>Diseño y desarrollo de soluciones tecnologicas a medida: aplicaciones web y moviles, plataformas personalizadas, integracion de APIs y microservicios, e inteligencia artificial aplicada a procesos empresariales.</p>
-                    <ul class="service-tags">
-                        <li>Software</li>
-                        <li>AI/ML</li>
-                        <li>APIs</li>
-                        <li>Cloud</li>
-                    </ul>
+                <div class="info-row">
+                    <strong>RFC:</strong> ELI201215H12
                 </div>
-                <!-- Service 3 -->
-                <div class="service-card glass-card animate-on-scroll" data-tilt>
-                    <div class="service-number">03</div>
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#sGrad1)" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                        </svg>
-                    </div>
-                    <h3>Analisis Blockchain & Compliance Digital</h3>
-                    <p>Herramientas y servicios de analisis on-chain para empresas que operan con activos digitales. Integracion con Chainalysis KYT, monitoreo transaccional en tiempo real, analisis de riesgo de contrapartes y reportes para marcos regulatorios PLD/FT.</p>
-                    <ul class="service-tags">
-                        <li>Blockchain</li>
-                        <li>Chainalysis</li>
-                        <li>KYT</li>
-                        <li>Compliance</li>
-                    </ul>
-                </div>
-                <!-- Service 4 -->
-                <div class="service-card glass-card animate-on-scroll" data-tilt>
-                    <div class="service-number">04</div>
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#sGrad1)" stroke-width="1.5">
-                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                        </svg>
-                    </div>
-                    <h3>Activos Digitales</h3>
-                    <p>Operaciones e inversion estrategica en el ecosistema de activos digitales. Analisis de mercado, gestion de portafolios digitales y ejecucion algoritmica &mdash; con enfoque en stablecoins (USDT/USDC) y mercados crypto, apoyados por tecnologia propietaria para optimizacion de ejecucion.</p>
-                    <ul class="service-tags">
-                        <li>Crypto</li>
-                        <li>Stablecoins</li>
-                        <li>Trading</li>
-                        <li>Algoritmica</li>
-                    </ul>
-                </div>
-                <!-- Service 5 -->
-                <div class="service-card glass-card animate-on-scroll" data-tilt>
-                    <div class="service-number">05</div>
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#sGrad1)" stroke-width="1.5">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            <polyline points="9 12 11 14 15 10"/>
-                        </svg>
-                    </div>
-                    <h3>Consultoria en Cumplimiento (PLD/FT)</h3>
-                    <p>Asesoria para empresas en el diseño e implementacion de programas de prevencion de lavado de dinero y financiamiento al terrorismo: manuales de cumplimiento, matrices de riesgo, procesos KYC/KYB y capacitacion.</p>
-                    <ul class="service-tags">
-                        <li>PLD/FT</li>
-                        <li>Compliance</li>
-                        <li>KYC/KYB</li>
-                        <li>Regulatorio</li>
-                    </ul>
+                <div class="info-row">
+                    Guadalajara, Jalisco &middot; Mexico
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Tech Stack Section -->
-    <section class="section" id="tech">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <span class="section-tag">// TECHNOLOGY</span>
-                <h2 class="section-title">Stack <span class="gradient-text">Tecnologico</span></h2>
-                <p class="section-desc">Infraestructura, inteligencia artificial y analisis blockchain</p>
-            </div>
-            <div class="tech-marquee">
-                <div class="marquee-track">
-                    <div class="marquee-item">Blockchain</div>
-                    <div class="marquee-item">AI / Machine Learning</div>
-                    <div class="marquee-item">Cloud Computing</div>
-                    <div class="marquee-item">Cybersecurity</div>
-                    <div class="marquee-item">Big Data</div>
-                    <div class="marquee-item">Smart Contracts</div>
-                    <div class="marquee-item">Blockchain</div>
-                    <div class="marquee-item">AI / Machine Learning</div>
-                    <div class="marquee-item">Cloud Computing</div>
-                    <div class="marquee-item">Cybersecurity</div>
-                    <div class="marquee-item">Big Data</div>
-                    <div class="marquee-item">Smart Contracts</div>
-                </div>
-            </div>
-            <div class="tech-grid animate-on-scroll">
-                <div class="tech-card glass-card">
-                    <div class="tech-card-glow"></div>
-                    <h4>Infraestructura</h4>
-                    <div class="tech-list">
-                        <span>Cloud Servers</span>
-                        <span>APIs</span>
-                        <span>Microservicios</span>
-                        <span>Monitoreo 24/7</span>
-                        <span>Automatizacion</span>
-                    </div>
-                </div>
-                <div class="tech-card glass-card">
-                    <div class="tech-card-glow"></div>
-                    <h4>Inteligencia Artificial</h4>
-                    <div class="tech-list">
-                        <span>Algoritmos propietarios</span>
-                        <span>Analisis predictivo</span>
-                        <span>Optimizacion de ejecucion</span>
-                        <span>Machine Learning</span>
-                    </div>
-                </div>
-                <div class="tech-card glass-card">
-                    <div class="tech-card-glow"></div>
-                    <h4>Compliance & Blockchain</h4>
-                    <div class="tech-list">
-                        <span>Chainalysis KYT</span>
-                        <span>Analisis on-chain</span>
-                        <span>Evaluacion de riesgo</span>
-                        <span>Monitoreo de wallets</span>
-                    </div>
-                </div>
-            </div>
+            <div class="meta">SAPI DE CV &middot; Desde 2020</div>
         </div>
-    </section>
-
-    <!-- SAPI Section -->
-    <section class="section section-dark" id="sapi">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <span class="section-tag">// SAPI FRAMEWORK</span>
-                <h2 class="section-title">Marco <span class="gradient-text">SAPI</span></h2>
-                <p class="section-desc">Estructura corporativa flexible bajo legislacion mercantil mexicana</p>
-            </div>
-            <div class="sapi-grid">
-                <div class="sapi-feature glass-card animate-on-scroll">
-                    <div class="sapi-icon-wrap">
-                        <span class="sapi-num">01</span>
-                    </div>
-                    <div class="sapi-content">
-                        <h4>Capital Variable</h4>
-                        <p>Flexibilidad para ajustar el capital social sin necesidad de reformas estatutarias, facilitando el crecimiento corporativo.</p>
-                    </div>
-                </div>
-                <div class="sapi-feature glass-card animate-on-scroll">
-                    <div class="sapi-icon-wrap">
-                        <span class="sapi-num">02</span>
-                    </div>
-                    <div class="sapi-content">
-                        <h4>Gobierno Corporativo</h4>
-                        <p>Consejo de administracion con estructura profesional y comites especializados orientados a la toma de decisiones informadas.</p>
-                    </div>
-                </div>
-                <div class="sapi-feature glass-card animate-on-scroll">
-                    <div class="sapi-icon-wrap">
-                        <span class="sapi-num">03</span>
-                    </div>
-                    <div class="sapi-content">
-                        <h4>Estructura Flexible</h4>
-                        <p>Marco societario ideal para operar en multiples verticales empresariales y tecnologicas bajo una misma entidad.</p>
-                    </div>
-                </div>
-                <div class="sapi-feature glass-card animate-on-scroll">
-                    <div class="sapi-icon-wrap">
-                        <span class="sapi-num">04</span>
-                    </div>
-                    <div class="sapi-content">
-                        <h4>Marco Regulatorio</h4>
-                        <p>Regulados por la Ley General de Sociedades Mercantiles y la legislacion mercantil mexicana aplicable.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info animate-on-scroll">
-                    <span class="section-tag">// CONTACTO</span>
-                    <h2 class="section-title">Conecta con <span class="gradient-text">Nosotros</span></h2>
-                    <p>&iquest;Tienes un proyecto en mente? Escribenos.</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                <circle cx="12" cy="10" r="3"/>
-                            </svg>
-                            <div>
-                                <strong>Domicilio Fiscal</strong>
-                                <span>Calle Pompeya 2775, Col. Lomas de Guevara</span>
-                                <span>Guadalajara, Jalisco, C.P. 44657</span>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                <polyline points="14 2 14 8 20 8"/>
-                            </svg>
-                            <div>
-                                <strong>RFC</strong>
-                                <span>ELI201215H12</span>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
-                            <div>
-                                <strong>Email</strong>
-                                <span>contacto@exfis.mx</span>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                            </svg>
-                            <div>
-                                <strong>Regimen</strong>
-                                <span>Sociedad Anonima Promotora de Inversion de Capital Variable</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form-wrap animate-on-scroll">
-                    <form class="contact-form glass-card" id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" required placeholder=" ">
-                            <label for="name">Nombre</label>
-                            <div class="form-line"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" required placeholder=" ">
-                            <label for="email">Email</label>
-                            <div class="form-line"></div>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" rows="5" required placeholder=" "></textarea>
-                            <label for="message">Mensaje</label>
-                            <div class="form-line"></div>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">
-                            <span>Enviar Mensaje</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="22" y1="2" x2="11" y2="13"/>
-                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                            </svg>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <span class="logo-text">EXFIS<span class="logo-accent">LIMITS</span></span>
-                    <p>Sociedad Anonima Promotora de Inversion de Capital Variable</p>
-                    <p class="footer-small">RFC: ELI201215H12 | Desde 2020</p>
-                </div>
-                <div class="footer-links">
-                    <h5>Servicios</h5>
-                    <a href="#services">Consultoria</a>
-                    <a href="#services">Tecnologia</a>
-                    <a href="#services">Activos Digitales</a>
-                    <a href="#services">Compliance</a>
-                </div>
-                <div class="footer-links">
-                    <h5>Empresa</h5>
-                    <a href="#about">Nosotros</a>
-                    <a href="#sapi">Marco SAPI</a>
-                    <a href="#contact">Contacto</a>
-                </div>
-                <div class="footer-links">
-                    <h5>Legal</h5>
-                    <a href="#contact">Aviso de Privacidad</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2020 &ndash; 2026 EXFIS LIMITS SAPI DE CV. Todos los derechos reservados.</p>
-                <p class="footer-small">Guadalajara, Jalisco, Mexico</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="app.js"></script>
+    </main>
 </body>
 </html>
